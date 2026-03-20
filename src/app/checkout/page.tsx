@@ -50,10 +50,9 @@ export default function CheckoutPage() {
           window.location.href = data.paymentUrl;
           return;
         }
-        // Credentials not yet configured — show friendly message
-        alert('Online payment is not yet configured. Please choose Cash on Delivery or contact us.');
-      } catch {
-        alert('Payment error. Please try again or choose Cash on Delivery.');
+        alert(`Payment error: ${data.error ?? 'Unknown error — please try again.'}`);
+      } catch (err) {
+        alert(`Network error: ${err instanceof Error ? err.message : String(err)}`);
       }
       setLoading(false);
       return;
@@ -233,9 +232,6 @@ export default function CheckoutPage() {
                   <p className="font-medium text-gray-900 text-sm">Online Payment (Visa)</p>
                   <p className="text-xs text-gray-500">Secure payment via Paymob</p>
                 </div>
-                <span className="ml-auto text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">
-                  Coming Soon
-                </span>
               </label>
             </div>
           </div>
