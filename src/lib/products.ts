@@ -54,30 +54,30 @@ export const products: Product[] = [
 export const categories = [
   {
     id: 1,
-    name: 'دفاتر',
+    name: 'Notebooks',
     count: 8,
     image: 'https://www.noqtadesigns.com/web/image/product.product/4/image_1024/2026%20Agenda?unique=5da109b',
-    description: 'دفاتر مميزة لكل الأغراض',
+    description: 'Premium notebooks for every purpose',
   },
   {
     id: 2,
-    name: 'أجندات ومخططات',
+    name: 'Planners',
     count: 6,
     image: 'https://www.noqtadesigns.com/web/image/product.product/14/image_1024/Ramadan%20planner?unique=7b2c8d5',
-    description: 'نظّم يومك وحقق أهدافك',
+    description: 'Stay organized and on track',
   },
   {
     id: 3,
-    name: 'أدوات مكتبية',
+    name: 'Stationery',
     count: 12,
     image: 'https://www.noqtadesigns.com/web/image/product.product/4/image_1024/2026%20Agenda?unique=5da109b',
-    description: 'أدوات مكتبية مختارة بعناية',
+    description: 'Curated stationery essentials',
   },
   {
     id: 4,
-    name: 'باقات',
+    name: 'Bundles',
     count: 4,
     image: 'https://www.noqtadesigns.com/web/image/product.product/14/image_1024/Ramadan%20planner?unique=7b2c8d5',
-    description: 'وفّر أكثر مع باقاتنا المميزة',
+    description: 'Save more with our curated sets',
   },
 ];

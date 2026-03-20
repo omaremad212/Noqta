@@ -72,7 +72,7 @@ export default function ProductCard({ product }: Props) {
             }`}
           >
             <ShoppingBag size={15} />
-            {added ? 'تمت الإضافة ✓' : 'أضف للسلة'}
+            {added ? 'Added ✓' : 'Add to Cart'}
           </button>
         </div>
       </div>
@@ -88,7 +88,7 @@ export default function ProductCard({ product }: Props) {
           </div>
         </div>
         <div className="flex items-center justify-between mt-2">
-          <span className="font-bold text-[#294840] text-base">{product.price} جنيه</span>
+          <span className="font-bold text-[#294840] text-base">{product.price} EGP</span>
         </div>
       </div>
     </Link>

@@ -1,7 +1,6 @@
 import HeroSection from '@/components/home/HeroSection';
 import FeaturedProducts from '@/components/home/FeaturedProducts';
 import CategoriesSection from '@/components/home/CategoriesSection';
-import AboutSection from '@/components/home/AboutSection';
 import InstagramSection from '@/components/home/InstagramSection';
 import NewsletterSection from '@/components/home/NewsletterSection';
 
@@ -11,7 +10,6 @@ export default function Home() {
       <HeroSection />
       <FeaturedProducts />
       <CategoriesSection />
-      <AboutSection />
       <InstagramSection />
       <NewsletterSection />
     </>
