@@ -35,14 +35,26 @@ export default function CheckoutPage() {
     setLoading(true);
 
     if (form.paymentMethod === 'online') {
-      // Paymob integration point — plug in API key here
-      // const response = await fetch('/api/paymob/create-order', {
-      //   method: 'POST',
-      //   body: JSON.stringify({ order: state.items, total, customer: form }),
-      // });
-      // const { paymentUrl } = await response.json();
-      // window.location.href = paymentUrl;
-      alert('Online payment coming soon! Paymob integration ready to connect with API key.');
+      try {
+        const response = await fetch('/api/paymob', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            items: state.items.map((i) => ({ name: i.name, quantity: i.quantity, price: i.price })),
+            total,
+            customer: form,
+          }),
+        });
+        const data = await response.json();
+        if (data.paymentUrl) {
+          window.location.href = data.paymentUrl;
+          return;
+        }
+        // Credentials not yet configured — show friendly message
+        alert('Online payment is not yet configured. Please choose Cash on Delivery or contact us.');
+      } catch {
+        alert('Payment error. Please try again or choose Cash on Delivery.');
+      }
       setLoading(false);
       return;
     }
