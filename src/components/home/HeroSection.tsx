@@ -47,16 +47,6 @@ export default function HeroSection() {
       <div className="absolute top-1/4 right-1/3 w-[500px] h-[500px] bg-[#294840]/20 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#1a3d30]/30 rounded-full blur-[80px] pointer-events-none" />
 
-      {/* Huge faint brand word in background */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-        <span
-          className="text-white font-black leading-none"
-          style={{ fontSize: 'clamp(200px, 30vw, 400px)', opacity: 0.025, letterSpacing: '-0.05em' }}
-        >
-          NOQTA
-        </span>
-      </div>
-
       {/* Main content */}
       <div className="relative z-10 flex-1 flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-24 lg:py-32">
@@ -68,20 +58,20 @@ export default function HeroSection() {
               <div className="flex items-center gap-3 mb-10">
                 <div className="w-8 h-px bg-[#4a8a70]" />
                 <span className="text-[#4a8a70] text-[11px] font-medium tracking-[0.4em] uppercase">
-                  نقطة ديزاينز · Collection 2026
+                  نقطة ديزاينز · كولكشن 2026
                 </span>
               </div>
 
               {/* Headline */}
               <div className="mb-8">
                 <p className="text-white/30 text-xl font-light tracking-[0.2em] uppercase mb-3">
-                  Where every
+                  حيث تبدأ كل
                 </p>
                 <h1
                   className="font-black text-white leading-[0.95] tracking-tight"
                   style={{ fontSize: 'clamp(72px, 10vw, 130px)' }}
                 >
-                  Word
+                  كلمة
                 </h1>
                 <h1
                   className="font-black leading-[0.95] tracking-tight italic"
@@ -91,13 +81,12 @@ export default function HeroSection() {
                     WebkitTextStroke: '2px #4a8a70',
                   }}
                 >
-                  Begins.
+                  بنقطة.
                 </h1>
               </div>
 
               <p className="text-white/45 text-base leading-relaxed max-w-sm mb-10">
-                Premium notebooks &amp; planners crafted for minds that believe
-                the right tool changes everything.
+                دفاتر وأجندات مميزة مصممة لمن يؤمن بأن الأداة الصحيحة تُغيّر كل شيء.
               </p>
 
               {/* CTAs */}
@@ -106,23 +95,23 @@ export default function HeroSection() {
                   href="/shop"
                   className="group inline-flex items-center gap-2 px-8 py-4 bg-[#4a8a70] text-white font-semibold rounded-full text-sm hover:bg-[#3d7560] transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#4a8a70]/30"
                 >
-                  Shop Now
-                  <span className="group-hover:translate-x-1 transition-transform inline-block">→</span>
+                  تسوق الآن
+                  <span className="group-hover:translate-x-1 transition-transform inline-block">←</span>
                 </Link>
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 px-8 py-4 border border-white/15 text-white/60 font-medium rounded-full text-sm hover:border-white/40 hover:text-white transition-all"
                 >
-                  Our Story
+                  قصتنا
                 </Link>
               </div>
 
               {/* Stats */}
               <div className="flex items-center gap-10 pt-8 border-t border-white/[0.08]">
                 {[
-                  { value: '2',    label: 'Collections' },
-                  { value: '500+', label: 'Customers'   },
-                  { value: '4.9★', label: 'Rating'      },
+                  { value: '٢',    label: 'كولكشنات' },
+                  { value: '+٥٠٠', label: 'عميل سعيد' },
+                  { value: '★٤.٩', label: 'تقييم'    },
                 ].map((s) => (
                   <div key={s.label}>
                     <p className="text-2xl font-bold text-white">{s.value}</p>
@@ -170,16 +159,6 @@ export default function HeroSection() {
                 ))}
               </svg>
 
-              {/* Floating price cards */}
-              <div className="absolute top-12 right-6 bg-white/8 backdrop-blur-xl border border-white/12 rounded-2xl px-5 py-4 text-center shadow-xl">
-                <p className="text-white/40 text-[10px] uppercase tracking-wider mb-1">Agenda 2026</p>
-                <p className="text-white font-bold text-xl">500 EGP</p>
-              </div>
-              <div className="absolute bottom-16 left-2 bg-[#4a8a70]/15 backdrop-blur-xl border border-[#4a8a70]/25 rounded-2xl px-5 py-4 text-center shadow-xl">
-                <p className="text-white/40 text-[10px] uppercase tracking-wider mb-1">Ramadan Planner</p>
-                <p className="text-white font-bold text-xl">95 EGP</p>
-              </div>
-
               {/* Scattered accent dots */}
               <div className="absolute top-0 left-1/4 w-2 h-2 rounded-full bg-[#4a8a70]/60" />
               <div className="absolute bottom-1/4 right-0 w-3 h-3 rounded-full bg-[#4a8a70]/40" />
@@ -194,15 +173,15 @@ export default function HeroSection() {
         <div className="flex whitespace-nowrap animate-marquee">
           {Array.from({ length: 6 }).map((_, i) => (
             <span key={i} className="text-white/20 text-[11px] uppercase tracking-[0.4em] mx-8">
-              Premium Stationery
+              أدوات كتابة مميزة
               <span className="text-[#4a8a70]/60 mx-6">·</span>
-              Made in Egypt
+              صُنع في مصر
               <span className="text-[#4a8a70]/60 mx-6">·</span>
               نقطة ديزاينز
               <span className="text-[#4a8a70]/60 mx-6">·</span>
-              2026 Collection
+              كولكشن 2026
               <span className="text-[#4a8a70]/60 mx-6">·</span>
-              Crafted with Love
+              مصنوع بحب
               <span className="text-[#4a8a70]/60 mx-6">·</span>
             </span>
           ))}

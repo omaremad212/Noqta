@@ -21,9 +21,9 @@ export default function InstagramSection() {
               @noqtadesigns
             </p>
           </div>
-          <h2 className="text-4xl font-bold text-gray-900">Follow Our Journey</h2>
+          <h2 className="text-4xl font-bold text-gray-900">تابعونا على إنستغرام</h2>
           <p className="text-gray-500 mt-3 text-sm max-w-sm mx-auto">
-            Daily inspiration, behind-the-scenes, and new product drops.
+            إلهام يومي، كواليس الصنع، وأحدث المنتجات.
           </p>
         </div>
 
@@ -58,7 +58,7 @@ export default function InstagramSection() {
             className="inline-flex items-center gap-2 px-6 py-3 border border-[#294840] text-[#294840] rounded-full text-sm font-medium hover:bg-[#294840] hover:text-white transition-all"
           >
             <Instagram size={16} />
-            Follow on Instagram
+            تابعنا على إنستغرام
           </a>
         </div>
       </div>
