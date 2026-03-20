@@ -69,7 +69,7 @@ export async function POST(req: NextRequest) {
           first_name:      firstName,
           last_name:       lastName,
           phone_number:    customer.phone,
-          email:           'NA',
+          email:           'customer@noqtadesigns.com',
           apartment:       'NA',
           floor:           'NA',
           street:          customer.address,
