@@ -33,7 +33,6 @@ export default function HeroSection() {
                 </div>
               </div>
               <p className="text-white/50 text-[10px] uppercase tracking-wider">2026 Agenda</p>
-              <p className="text-white font-bold text-sm mt-0.5">500 EGP</p>
               <span className="inline-block mt-2 text-[9px] bg-[#4a8a70]/20 text-[#4a8a70] border border-[#4a8a70]/30 rounded-full px-2 py-0.5 uppercase tracking-wider">
                 New
               </span>
@@ -55,7 +54,6 @@ export default function HeroSection() {
                 </div>
               </div>
               <p className="text-white/50 text-[10px] uppercase tracking-wider">Ramadan Planner</p>
-              <p className="text-white font-bold text-sm mt-0.5">95 EGP</p>
               <span className="inline-block mt-2 text-[9px] bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded-full px-2 py-0.5 uppercase tracking-wider">
                 Bestseller
               </span>
