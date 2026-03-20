@@ -91,9 +91,12 @@ export async function POST(req: NextRequest) {
     });
 
     if (!intentionRes.ok) {
-      const err = await intentionRes.text();
-      console.error('[Paymob] Intention failed:', err);
-      return NextResponse.json({ error: 'Failed to create payment intention' }, { status: 502 });
+      const errText = await intentionRes.text();
+      console.error('[Paymob] Intention failed:', errText);
+      return NextResponse.json(
+        { error: `Paymob ${intentionRes.status}: ${errText}` },
+        { status: 502 }
+      );
     }
 
     const intention = await intentionRes.json();
