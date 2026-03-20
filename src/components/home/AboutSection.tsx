@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { Heart, Leaf, Star } from 'lucide-react';
 
 const values = [
-  { icon: Heart, title: 'Made with Care', desc: 'Every product is thoughtfully designed with love and attention to detail.' },
-  { icon: Leaf, title: 'Quality Materials', desc: 'We use only premium paper and materials that elevate your experience.' },
-  { icon: Star, title: 'Minimal Aesthetic', desc: 'Clean, elegant design that inspires focus and creativity.' },
+  { icon: Heart, title: 'مصنوع باهتمام', desc: 'كل منتج مصمم بعناية واهتمام بالتفاصيل.' },
+  { icon: Leaf,  title: 'خامات عالية الجودة', desc: 'نستخدم أفضل أنواع الورق والمواد لتجربة كتابة استثنائية.' },
+  { icon: Star,  title: 'تصميم أنيق', desc: 'تصميم بسيط وأنيق يلهمك التركيز والإبداع.' },
 ];
 
 export default function AboutSection() {
@@ -18,7 +18,7 @@ export default function AboutSection() {
             <div className="absolute top-0 left-0 w-72 h-80 rounded-3xl overflow-hidden shadow-xl">
               <Image
                 src="https://www.noqtadesigns.com/web/image/product.product/4/image_1024/2026%20Agenda?unique=5da109b"
-                alt="About Noqta Designs"
+                alt="أجندة 2026"
                 fill
                 className="object-cover"
               />
@@ -26,35 +26,34 @@ export default function AboutSection() {
             <div className="absolute bottom-0 right-0 w-60 h-72 rounded-3xl overflow-hidden shadow-xl">
               <Image
                 src="https://www.noqtadesigns.com/web/image/product.product/14/image_1024/Ramadan%20planner?unique=7b2c8d5"
-                alt="Noqta Designs Products"
+                alt="مخطط رمضان"
                 fill
                 className="object-cover"
               />
             </div>
             {/* Floating card */}
             <div className="absolute bottom-12 left-1/2 -translate-x-1/2 bg-[#294840] text-white rounded-2xl px-6 py-4 shadow-2xl z-10 text-center min-w-[160px]">
-              <p className="text-3xl font-bold">500+</p>
-              <p className="text-white/70 text-xs mt-1">Happy Customers</p>
+              <p className="text-3xl font-bold">+٥٠٠</p>
+              <p className="text-white/70 text-xs mt-1">عميل سعيد</p>
             </div>
           </div>
 
           {/* Text */}
           <div>
             <p className="text-xs uppercase tracking-widest text-[#294840] font-medium mb-3">
-              Our Story
+              قصتنا
             </p>
             <h2 className="text-4xl font-bold text-gray-900 leading-tight">
-              Designed for those who
-              <span className="text-[#294840]"> value the art</span> of writing.
+              مصممة لمن يُقدّر
+              <span className="text-[#294840]"> فن الكتابة.</span>
             </h2>
             <p className="mt-5 text-gray-500 leading-relaxed">
-              Noqta Designs was born from a love of beautiful stationery and intentional living.
-              Based in Cairo, Egypt, we create notebooks and planners that inspire you to slow down,
-              reflect, and write with purpose.
+              نقطة ديزاينز وُلدت من حب الأدوات الجميلة والحياة الواعية.
+              من القاهرة، مصر، نصنع دفاتر وأجندات تُلهمك للتأمل والكتابة بهدف.
             </p>
             <p className="mt-4 text-gray-500 leading-relaxed">
-              Each product is crafted with precision — from the texture of the cover to the weight
-              of the paper — because we believe that what you write with matters as much as what you write.
+              كل منتج مصنوع بدقة — من ملمس الغلاف إلى وزن الورقة — لأننا نؤمن
+              بأن ما تكتب به يهم بقدر ما تكتبه.
             </p>
 
             <div className="mt-8 space-y-5">
@@ -75,7 +74,7 @@ export default function AboutSection() {
               href="/contact"
               className="inline-flex mt-8 px-8 py-3.5 bg-[#294840] text-white rounded-full font-medium text-sm hover:bg-[#1e3530] transition-colors"
             >
-              Get in Touch
+              تواصل معنا
             </Link>
           </div>
         </div>

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Heart, ShoppingBag, Star } from 'lucide-react';
+import { Heart, ShoppingBag } from 'lucide-react';
 import { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
@@ -72,7 +72,7 @@ export default function ProductCard({ product }: Props) {
             }`}
           >
             <ShoppingBag size={15} />
-            {added ? 'Added!' : 'Add to Cart'}
+            {added ? 'تمت الإضافة ✓' : 'أضف للسلة'}
           </button>
         </div>
       </div>
@@ -88,13 +88,7 @@ export default function ProductCard({ product }: Props) {
           </div>
         </div>
         <div className="flex items-center justify-between mt-2">
-          <span className="font-bold text-[#294840] text-base">{product.price} EGP</span>
-          {product.rating && (
-            <div className="flex items-center gap-1">
-              <Star size={12} fill="#f59e0b" className="text-amber-400" />
-              <span className="text-xs text-gray-500">{product.rating}</span>
-            </div>
-          )}
+          <span className="font-bold text-[#294840] text-base">{product.price} جنيه</span>
         </div>
       </div>
     </Link>

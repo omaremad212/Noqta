@@ -12,15 +12,15 @@ export default function FeaturedProducts() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
           <div>
             <p className="text-xs uppercase tracking-widest text-[#294840] font-medium mb-2">
-              Curated Selection
+              اختيار مميز
             </p>
-            <h2 className="text-4xl font-bold text-gray-900">Featured Products</h2>
+            <h2 className="text-4xl font-bold text-gray-900">منتجاتنا</h2>
           </div>
           <Link
             href="/shop"
             className="text-sm font-medium text-[#294840] hover:underline underline-offset-4"
           >
-            View all →
+            عرض الكل ←
           </Link>
         </div>
 
