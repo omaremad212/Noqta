@@ -50,10 +50,20 @@ body {
   to   { transform: scale(1); opacity: 1; }
 }
 
-.animate-fadeIn      { animation: fadeIn 0.5s ease forwards; }
+.animate-fadeIn       { animation: fadeIn 0.5s ease forwards; }
 .animate-slideInRight { animation: slideInRight 0.35s ease forwards; }
 .animate-slideInDown  { animation: slideInDown 0.3s ease forwards; }
-.animate-scaleIn     { animation: scaleIn 0.25s ease forwards; }
+.animate-scaleIn      { animation: scaleIn 0.25s ease forwards; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  display: inline-flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
 
 .line-clamp-2 {
   display: -webkit-box;
