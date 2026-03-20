@@ -21,45 +21,6 @@ export default function HeroSection() {
       <div className="relative z-10 flex-1 flex items-center justify-center">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 relative">
 
-          {/* Floating left card */}
-          <div className="hidden xl:block absolute left-0 top-1/2 -translate-y-1/2 animate-fadeIn">
-            <div className="bg-white/[0.06] backdrop-blur-xl border border-white/10 rounded-2xl p-4 w-48 shadow-2xl">
-              <div className="w-full aspect-[4/3] rounded-xl bg-[#294840]/40 mb-3 flex items-center justify-center overflow-hidden">
-                {/* Decorative notebook lines */}
-                <div className="w-full h-full p-3 space-y-1.5">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <div key={i} className={`h-px rounded-full ${i === 0 ? 'bg-[#4a8a70]/80 w-3/4' : 'bg-white/15'} ${i === 2 ? 'w-1/2' : 'w-full'}`} />
-                  ))}
-                </div>
-              </div>
-              <p className="text-white/50 text-[10px] uppercase tracking-wider">2026 Agenda</p>
-              <span className="inline-block mt-2 text-[9px] bg-[#4a8a70]/20 text-[#4a8a70] border border-[#4a8a70]/30 rounded-full px-2 py-0.5 uppercase tracking-wider">
-                New
-              </span>
-            </div>
-          </div>
-
-          {/* Floating right card */}
-          <div className="hidden xl:block absolute right-0 top-1/2 -translate-y-1/2 animate-fadeIn">
-            <div className="bg-white/[0.06] backdrop-blur-xl border border-white/10 rounded-2xl p-4 w-48 shadow-2xl">
-              <div className="w-full aspect-[4/3] rounded-xl bg-[#294840]/40 mb-3 flex items-center justify-center overflow-hidden">
-                <div className="w-full h-full p-3 space-y-1.5">
-                  {/* Moon/crescent motif for Ramadan */}
-                  <div className="flex justify-center pt-2">
-                    <div className="w-6 h-6 rounded-full border border-[#4a8a70]/60" />
-                  </div>
-                  {Array.from({ length: 3 }).map((_, i) => (
-                    <div key={i} className="h-px bg-white/15 rounded-full" />
-                  ))}
-                </div>
-              </div>
-              <p className="text-white/50 text-[10px] uppercase tracking-wider">Ramadan Planner</p>
-              <span className="inline-block mt-2 text-[9px] bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded-full px-2 py-0.5 uppercase tracking-wider">
-                Bestseller
-              </span>
-            </div>
-          </div>
-
           {/* Center text */}
           <div className="text-center max-w-3xl mx-auto">
 
