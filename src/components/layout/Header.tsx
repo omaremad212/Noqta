@@ -9,17 +9,17 @@ import { useWishlist } from '@/context/WishlistContext';
 import { useSearch } from '@/context/SearchContext';
 
 const navLinks = [
-  { href: '/', label: 'الرئيسية' },
-  { href: '/shop', label: 'المتجر' },
-  { href: '/contact', label: 'تواصل معنا' },
+  { href: '/', label: 'Home' },
+  { href: '/shop', label: 'Shop' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 const MARQUEE_TEXT = [
-  'توصيل مجاني للطلبات فوق ٣٠٠ جنيه',
-  'كولكشن 2026 الجديد',
-  'مصنوع بحب في مصر',
-  'أدوات كتابة مميزة · نقطة ديزاينز',
-  'Free delivery over 300 EGP',
+  'New Collection 2026',
+  'Made in Egypt',
+  'Premium Notebooks & Planners',
+  'Noqta Designs',
+  'Crafted with Purpose',
 ];
 
 export default function Header() {
@@ -143,7 +143,7 @@ export default function Header() {
                 } hover:-translate-y-px`}
               >
                 <ShoppingBag size={15} />
-                <span>السلة</span>
+                <span>Bag</span>
                 {totalItems > 0 && (
                   <span className="bg-white/25 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">
                     {totalItems}
