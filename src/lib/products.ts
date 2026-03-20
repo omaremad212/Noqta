@@ -49,50 +49,6 @@ export const products: Product[] = [
     rating: 4.8,
     reviews: 41,
   },
-  {
-    id: 3,
-    name: 'Classic Notebook',
-    price: 150,
-    image: 'https://www.noqtadesigns.com/web/image/product.product/4/image_1024/2026%20Agenda?unique=5da109b',
-    images: [
-      'https://www.noqtadesigns.com/web/image/product.product/4/image_1024/2026%20Agenda?unique=5da109b',
-    ],
-    category: 'Notebooks',
-    description:
-      'The Noqta Designs Classic Notebook — your perfect companion for thoughts, sketches, and everything in between. Crafted with attention to detail and premium materials.',
-    features: [
-      'A5 size',
-      '200 lined pages',
-      'Premium 90gsm paper',
-      'Hardcover with matte finish',
-      'Lay-flat binding',
-    ],
-    inStock: true,
-    rating: 4.7,
-    reviews: 18,
-  },
-  {
-    id: 4,
-    name: 'Weekly Planner Pad',
-    price: 75,
-    image: 'https://www.noqtadesigns.com/web/image/product.product/14/image_1024/Ramadan%20planner?unique=7b2c8d5',
-    images: [
-      'https://www.noqtadesigns.com/web/image/product.product/14/image_1024/Ramadan%20planner?unique=7b2c8d5',
-    ],
-    category: 'Planners',
-    description:
-      'Organize your week effortlessly with our tear-off Weekly Planner Pad. Minimalist design meets maximum functionality.',
-    features: [
-      '52 weekly sheets',
-      'Priority tasks section',
-      'Notes & habit tracker',
-      'Premium paper',
-      'Desk-friendly format',
-    ],
-    inStock: true,
-    rating: 4.6,
-    reviews: 12,
-  },
 ];
 
 export const categories = [
