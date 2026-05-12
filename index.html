@@ -3,32 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="نقطة ديزاينز — احصل على هديتك الخاصة من تصميمات نقطة" />
+  <meta name="description" content="نقطة ديزاينز — احصل على هديتك الخاصة" />
   <title>هدية نقطة ديزاينز</title>
-  <link rel="stylesheet" href="styles.css" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500&family=Inter:wght@300;400&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ─── NAV ─────────────────────────────────────── -->
+  <!-- ─── NAVIGATION ─────────────────────────────────────────── -->
   <header role="banner">
     <nav class="nav" aria-label="التنقل الرئيسي">
       <a href="/" class="nav-logo" aria-label="نقطة ديزاينز — الصفحة الرئيسية">
-        <img src="assets/logo.svg" alt="نقطة ديزاينز" width="80" height="32" />
+        <span class="wordmark" aria-hidden="true">نقطة</span>
       </a>
     </nav>
   </header>
 
-  <!-- ─── HERO ─────────────────────────────────────── -->
+  <!-- ─── HERO ───────────────────────────────────────────────── -->
   <main>
     <section class="hero" aria-labelledby="hero-heading">
+
       <div class="hero-glow" aria-hidden="true"></div>
 
       <div class="hero-content">
-        <span class="hero-label" aria-hidden="true">هدية حصرية</span>
+        <span class="eyebrow" aria-label="هدية حصرية">هدية حصرية</span>
 
-        <h1 class="hero-heading" id="hero-heading">هدية بتستحقها</h1>
+        <h1 class="hero-heading" id="hero-heading">
+          هدية بتستحقها
+        </h1>
 
         <p class="hero-sub">
           تصميمات نقطة بتكافئك بخصم خاص.<br />
@@ -36,53 +45,62 @@
         </p>
 
         <button
-          class="btn-gift"
-          id="openModalBtn"
+          class="btn-cta"
+          id="js-open"
           aria-haspopup="dialog"
-          aria-controls="giftModal"
+          aria-controls="gift-modal"
         >
           احصل على هديتك
         </button>
       </div>
 
-      <div class="scroll-indicator" aria-hidden="true">
-        <svg width="20" height="28" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 1V27M10 27L3 20M10 27L17 20" stroke="#F5F5F0" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- scroll hint -->
+      <div class="scroll-hint" aria-hidden="true">
+        <svg width="18" height="26" viewBox="0 0 18 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 1V25M9 25L2 18M9 25L16 18"
+                stroke="currentColor" stroke-width="1"
+                stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
+
     </section>
   </main>
 
-  <!-- ─── MODAL ────────────────────────────────────── -->
+  <!-- ─── GIFT MODAL ─────────────────────────────────────────── -->
   <div
     class="modal-overlay"
-    id="giftModal"
+    id="gift-modal"
     role="dialog"
     aria-modal="true"
-    aria-labelledby="modalHeading"
+    aria-labelledby="modal-title"
     aria-hidden="true"
   >
-    <div class="modal-card" id="modalCard">
+    <div class="modal-card" id="modal-card">
+
       <button
         class="modal-close"
-        id="closeModalBtn"
-        aria-label="إغلاق"
+        id="js-close"
+        aria-label="إغلاق النافذة"
       >
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M1 1L13 13M13 1L1 13"
+                stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round"/>
         </svg>
       </button>
 
-      <span class="modal-label" aria-hidden="true">هديتك جاهزة</span>
+      <span class="modal-eyebrow">هديتك جاهزة</span>
 
-      <img
-        src="qr2.jpg.jpeg"
-        alt="بطاقة الهدية من نقطة ديزاينز — خصم خاص"
-        class="modal-gift-image"
-        loading="lazy"
-      />
+      <div class="modal-image-wrap">
+        <img
+          src="assets/qr2.jpg.jpeg"
+          alt="بطاقة هدية نقطة ديزاينز — كود خصم خاص"
+          class="modal-img"
+          loading="lazy"
+        />
+      </div>
 
-      <h2 class="modal-heading" id="modalHeading">خصم خاص ليك</h2>
+      <h2 class="modal-heading" id="modal-title">خصم خاص ليك</h2>
 
       <p class="modal-instructions">
         خد سكرين شوت للصورة دي وابعتها على الانستجرام عشان تستلم خصمك.
@@ -93,21 +111,26 @@
         target="_blank"
         rel="noopener noreferrer"
         class="btn-instagram"
-        aria-label="افتح صفحة نقطة ديزاينز على انستجرام"
+        aria-label="افتح صفحة نقطة ديزاينز على انستجرام في تاب جديد"
       >
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="currentColor" stroke-width="1.5"/>
-          <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+        <!-- Instagram icon (right side in RTL) -->
+        <svg class="ig-icon" width="17" height="17" viewBox="0 0 24 24" fill="none"
+             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="6"
+                stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="12" cy="12" r="4.5"
+                  stroke="currentColor" stroke-width="1.5"/>
           <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
         </svg>
         افتح انستجرام نقطة
       </a>
+
     </div>
   </div>
 
-  <!-- ─── FOOTER ───────────────────────────────────── -->
+  <!-- ─── FOOTER ─────────────────────────────────────────────── -->
   <footer class="footer" role="contentinfo">
-    <span class="footer-text">© نقطة 2026</span>
+    <span class="footer-copy">© نقطة 2026</span>
     <a
       href="https://www.instagram.com/noqtadesigns/?hl=ar"
       target="_blank"
@@ -115,9 +138,12 @@
       class="footer-ig"
       aria-label="انستجرام نقطة ديزاينز"
     >
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="6"
+              stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="12" cy="12" r="4.5"
+                stroke="currentColor" stroke-width="1.5"/>
         <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
       </svg>
     </a>
