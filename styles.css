@@ -1,32 +1,32 @@
 /* ─── TOKENS ─────────────────────────────────────────────── */
 /*
-  Palette extracted from the Noqta Designs logo:
-    bg      → near-black with deep forest-green undertone
-    text    → warm cream/ivory  #EDE5C8
-    accent  → muted gold-amber  #C4A86A  (harmonises with the green)
-    green   → mid forest green  #2A5540  (used for glows only)
+  Light / linen theme — derived from the Noqta Designs logo palette:
+    bg      → warm linen / ivory       #F4EFE4
+    text    → deep forest green        #1A3225
+    accent  → deep amber-gold          #8B6418
+    green   → mid forest green         #2A5540
 */
 
 :root {
-  --bg:            #080E09;
-  --text:          #EDE5C8;
-  --text-muted:    rgba(237, 229, 200, 0.52);
-  --text-dim:      rgba(237, 229, 200, 0.30);
+  --bg:            #F4EFE4;
+  --text:          #1A3225;
+  --text-muted:    rgba(26, 50, 37, 0.55);
+  --text-dim:      rgba(26, 50, 37, 0.30);
 
-  --gold:          #C4A86A;
-  --gold-60:       rgba(196, 168, 106, 0.60);
-  --gold-30:       rgba(196, 168, 106, 0.30);
-  --gold-15:       rgba(196, 168, 106, 0.15);
-  --gold-10:       rgba(196, 168, 106, 0.10);
+  --gold:          #8B6418;
+  --gold-60:       rgba(139, 100, 24, 0.60);
+  --gold-30:       rgba(139, 100, 24, 0.30);
+  --gold-15:       rgba(139, 100, 24, 0.15);
+  --gold-10:       rgba(139, 100, 24, 0.10);
 
   --green:         #2A5540;
   --green-12:      rgba(42, 85, 64, 0.12);
   --green-06:      rgba(42, 85, 64, 0.06);
 
-  --glass-bg:      rgba(237, 229, 200, 0.04);
-  --glass-bg-hover:rgba(237, 229, 200, 0.07);
-  --glass-border:  rgba(237, 229, 200, 0.09);
-  --glass-border-faint: rgba(237, 229, 200, 0.05);
+  --glass-bg:      rgba(42, 85, 64, 0.05);
+  --glass-bg-hover:rgba(42, 85, 64, 0.10);
+  --glass-border:  rgba(42, 85, 64, 0.16);
+  --glass-border-faint: rgba(42, 85, 64, 0.09);
 
   --ease:          cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -76,9 +76,9 @@ body.scroll-locked {
   z-index: 90;
   display: flex;
   align-items: center;
-  justify-content: space-between;   /* logo right, avatar left in RTL */
-  padding: 1.25rem 2.5rem;
-  background: rgba(8, 14, 9, 0.72);
+  justify-content: flex-end;
+  padding: 1rem 2.5rem;
+  background: rgba(244, 239, 228, 0.82);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border-faint);
@@ -87,30 +87,27 @@ body.scroll-locked {
 .nav-logo {
   text-decoration: none;
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
-}
-
-.wordmark {
-  font-family: 'Tajawal', sans-serif;
-  font-size: 1.45rem;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  color: var(--text);
+  gap: 0.05rem;
   line-height: 1;
 }
 
-.nav-avatar {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid var(--gold-30);
-  flex-shrink: 0;
-  transition: border-color 0.3s var(--ease);
+.logo-arabic {
+  font-family: 'Amiri', serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
 }
 
-.nav-avatar:hover {
-  border-color: var(--gold-60);
+.logo-latin {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.45rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green);
 }
 
 /* ─── HERO ───────────────────────────────────────────────── */
@@ -127,19 +124,18 @@ body.scroll-locked {
   overflow: hidden;
 }
 
-/* radial glow — layered: forest green base + faint gold centre */
 .hero-glow {
   position: absolute;
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 50% 40% at 50% 44%, var(--gold-10)  0%, transparent 60%),
-    radial-gradient(ellipse 80% 70% at 50% 50%, var(--green-12) 0%, transparent 72%);
+    radial-gradient(ellipse 50% 40% at 50% 44%, rgba(139, 100, 24, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 70% at 50% 50%, rgba(42, 85, 64, 0.09) 0%, transparent 72%);
   animation: glow-pulse 7s ease-in-out infinite;
 }
 
 @keyframes glow-pulse {
-  0%, 100% { opacity: 0.7; }
+  0%, 100% { opacity: 0.6; }
   50%       { opacity: 1; }
 }
 
@@ -158,7 +154,6 @@ body.scroll-locked {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* tiny label above the heading */
 .eyebrow {
   font-family: 'Inter', sans-serif;
   font-size: 0.625rem;
@@ -240,11 +235,10 @@ body.scroll-locked {
   align-items: center;
   justify-content: center;
   padding: 1.25rem;
-  background: rgba(8, 14, 9, 0.90);
+  background: rgba(244, 239, 228, 0.94);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
 
-  /* hidden state */
   opacity: 0;
   visibility: hidden;
   transition:
@@ -263,21 +257,20 @@ body.scroll-locked {
   position: relative;
   width: 100%;
   max-width: 480px;
-  background: rgba(237, 229, 200, 0.04);
-  border: 1px solid rgba(237, 229, 200, 0.10);
+  background: rgba(255, 252, 245, 0.90);
+  border: 1px solid var(--glass-border);
   border-radius: 24px;
   padding: 2.5rem;
+  box-shadow: 0 8px 48px rgba(42, 85, 64, 0.10);
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1.125rem;
 
-  /* entry animation — driven by parent open class */
   transform: scale(0.96);
   transition: transform 0.4s var(--ease);
 
-  /* contain long content on small screens */
   max-height: 92dvh;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -290,7 +283,6 @@ body.scroll-locked {
   transform: scale(1);
 }
 
-/* close button — top-left in RTL layout */
 .modal-close {
   position: absolute;
   top: 1.25rem;
@@ -313,7 +305,7 @@ body.scroll-locked {
 .modal-close:hover,
 .modal-close:focus-visible {
   color: var(--text);
-  background: rgba(237, 229, 200, 0.08);
+  background: rgba(42, 85, 64, 0.08);
   outline: none;
 }
 
@@ -326,7 +318,6 @@ body.scroll-locked {
   letter-spacing: 0.20em;
   text-transform: uppercase;
   color: var(--gold);
-  /* offset so it doesn't sit under the close button (RTL: left=close) */
   padding-inline-end: 2.5rem;
   align-self: flex-start;
 }
@@ -335,10 +326,9 @@ body.scroll-locked {
   width: 100%;
   border-radius: 16px;
   overflow: hidden;
-  /* very soft ambient glow beneath the card */
   box-shadow:
-    0 12px 48px rgba(0, 0, 0, 0.60),
-    0  0   40px var(--green-12);
+    0 12px 48px rgba(42, 85, 64, 0.14),
+    0  0   40px rgba(42, 85, 64, 0.08);
 }
 
 .modal-img {
@@ -364,7 +354,6 @@ body.scroll-locked {
   text-align: right;
 }
 
-/* Instagram CTA inside modal */
 .btn-instagram {
   display: inline-flex;
   align-items: center;
@@ -427,6 +416,24 @@ body.scroll-locked {
 .footer-ig:focus-visible {
   color: var(--text-muted);
   outline: none;
+}
+
+/* ─── CONFETTI ───────────────────────────────────────────── */
+
+.confetti-piece {
+  position: fixed;
+  top: -12px;
+  z-index: 9999;
+  border-radius: 2px;
+  pointer-events: none;
+  animation: confetti-fall linear forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes confetti-fall {
+  0%   { transform: translateY(0)      rotate(0deg);   opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateY(105vh)  rotate(600deg); opacity: 0; }
 }
 
 /* ─── RESPONSIVE ─────────────────────────────────────────── */
