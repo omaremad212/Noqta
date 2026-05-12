@@ -1,32 +1,30 @@
 /* ─── TOKENS ─────────────────────────────────────────────── */
 /*
-  Palette extracted from the Noqta Designs logo:
-    bg      → near-black with deep forest-green undertone
-    text    → warm cream/ivory  #EDE5C8
-    accent  → muted gold-amber  #C4A86A  (harmonises with the green)
-    green   → mid forest green  #2A5540  (used for glows only)
+  Noqta Designs brand palette (from logo):
+    --bg      warm linen/cream  #F2EDD8
+    --green   deep forest green #2A5540  (the logo background color)
+    --text    same forest green on linen
 */
 
 :root {
-  --bg:            #080E09;
-  --text:          #EDE5C8;
-  --text-muted:    rgba(237, 229, 200, 0.52);
-  --text-dim:      rgba(237, 229, 200, 0.30);
-
-  --gold:          #C4A86A;
-  --gold-60:       rgba(196, 168, 106, 0.60);
-  --gold-30:       rgba(196, 168, 106, 0.30);
-  --gold-15:       rgba(196, 168, 106, 0.15);
-  --gold-10:       rgba(196, 168, 106, 0.10);
+  --bg:            #F2EDD8;
+  --bg-alt:        #EBE5CE;          /* slightly deeper for card inside modal */
 
   --green:         #2A5540;
+  --green-80:      rgba(42, 85, 64, 0.80);
+  --green-50:      rgba(42, 85, 64, 0.50);
+  --green-30:      rgba(42, 85, 64, 0.30);
   --green-12:      rgba(42, 85, 64, 0.12);
   --green-06:      rgba(42, 85, 64, 0.06);
 
-  --glass-bg:      rgba(237, 229, 200, 0.04);
-  --glass-bg-hover:rgba(237, 229, 200, 0.07);
-  --glass-border:  rgba(237, 229, 200, 0.09);
-  --glass-border-faint: rgba(237, 229, 200, 0.05);
+  --text:          #1C3829;          /* darkest green — headings */
+  --text-muted:    rgba(28, 56, 41, 0.58);
+  --text-dim:      rgba(28, 56, 41, 0.35);
+
+  --glass-bg:      rgba(42, 85, 64, 0.06);
+  --glass-bg-hover:rgba(42, 85, 64, 0.12);
+  --glass-border:  rgba(42, 85, 64, 0.18);
+  --glass-border-faint: rgba(42, 85, 64, 0.10);
 
   --ease:          cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -57,14 +55,20 @@ body {
   animation: page-in 0.8s var(--ease) forwards;
 }
 
-body.scroll-locked {
-  overflow: hidden;
-}
-
-/* ─── PAGE FADE-IN ───────────────────────────────────────── */
+body.scroll-locked { overflow: hidden; }
 
 @keyframes page-in {
   to { opacity: 1; }
+}
+
+/* ─── CONFETTI CANVAS ────────────────────────────────────── */
+
+#confetti-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  pointer-events: none;
+  opacity: 0;
 }
 
 /* ─── NAVIGATION ─────────────────────────────────────────── */
@@ -76,9 +80,9 @@ body.scroll-locked {
   z-index: 90;
   display: flex;
   align-items: center;
-  justify-content: flex-end;        /* logo sits on the right in RTL */
-  padding: 1.25rem 2.5rem;
-  background: rgba(8, 14, 9, 0.72);
+  justify-content: flex-end;
+  padding: 1rem 2rem;
+  background: rgba(242, 237, 216, 0.75);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border-faint);
@@ -90,19 +94,17 @@ body.scroll-locked {
   align-items: center;
 }
 
-.wordmark {
-  font-family: 'Tajawal', sans-serif;
-  font-size: 1.45rem;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  color: var(--text);
-  line-height: 1;
+.logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: block;
+  object-fit: cover;
 }
 
 /* ─── HERO ───────────────────────────────────────────────── */
 
 .hero {
-  position: relative;
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
@@ -110,23 +112,16 @@ body.scroll-locked {
   justify-content: center;
   text-align: center;
   padding: 7rem 1.5rem 5rem;
-  overflow: hidden;
+  position: relative;
 }
 
-/* radial glow — layered: forest green base + faint gold centre */
-.hero-glow {
+/* very faint green radial behind content — warmth, not glow */
+.hero::before {
+  content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(ellipse 50% 40% at 50% 44%, var(--gold-10)  0%, transparent 60%),
-    radial-gradient(ellipse 80% 70% at 50% 50%, var(--green-12) 0%, transparent 72%);
-  animation: glow-pulse 7s ease-in-out infinite;
-}
-
-@keyframes glow-pulse {
-  0%, 100% { opacity: 0.7; }
-  50%       { opacity: 1; }
+  background: radial-gradient(ellipse 70% 60% at 50% 45%, var(--green-06) 0%, transparent 70%);
 }
 
 .hero-content {
@@ -135,30 +130,29 @@ body.scroll-locked {
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  max-width: 700px;
-  animation: hero-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+  max-width: 680px;
+  animation: hero-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
 }
 
 @keyframes hero-up {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* tiny label above the heading */
 .eyebrow {
   font-family: 'Inter', sans-serif;
-  font-size: 0.625rem;
+  font-size: 0.6rem;
   font-weight: 400;
-  letter-spacing: 0.20em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--green-80);
 }
 
 .hero-heading {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 300;
   line-height: 1.15;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   color: var(--text);
 }
 
@@ -167,10 +161,10 @@ body.scroll-locked {
   font-weight: 300;
   color: var(--text-muted);
   line-height: 1.75;
-  max-width: 420px;
+  max-width: 400px;
 }
 
-/* ─── BUTTONS ────────────────────────────────────────────── */
+/* ─── CTA BUTTON ─────────────────────────────────────────── */
 
 .btn-cta {
   display: inline-flex;
@@ -178,42 +172,26 @@ body.scroll-locked {
   gap: 0.5rem;
   padding: 1rem 2.5rem;
   border-radius: 100px;
-  background: var(--glass-bg);
-  border: 1px solid var(--gold-30);
-  color: var(--gold);
+  background: var(--green);
+  border: 1px solid var(--green);
+  color: #F2EDD8;
   font-family: 'Tajawal', sans-serif;
   font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.025em;
   cursor: pointer;
   transition:
-    border-color  0.4s var(--ease),
-    box-shadow    0.4s var(--ease),
-    background    0.4s var(--ease);
+    background  0.4s var(--ease),
+    box-shadow  0.4s var(--ease),
+    border-color 0.4s var(--ease);
 }
 
 .btn-cta:hover,
 .btn-cta:focus-visible {
-  border-color: var(--gold-60);
-  box-shadow: 0 0 28px var(--gold-15);
-  background: var(--glass-bg-hover);
+  background: #1C3829;
+  border-color: #1C3829;
+  box-shadow: 0 4px 24px var(--green-30);
   outline: none;
-}
-
-/* ─── SCROLL HINT ────────────────────────────────────────── */
-
-.scroll-hint {
-  position: absolute;
-  bottom: 2.25rem;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--text-dim);
-  animation: bob 2.8s ease-in-out infinite;
-}
-
-@keyframes bob {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(6px); }
 }
 
 /* ─── MODAL OVERLAY ──────────────────────────────────────── */
@@ -226,11 +204,10 @@ body.scroll-locked {
   align-items: center;
   justify-content: center;
   padding: 1.25rem;
-  background: rgba(8, 14, 9, 0.90);
+  background: rgba(28, 56, 41, 0.82);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
 
-  /* hidden state */
   opacity: 0;
   visibility: hidden;
   transition:
@@ -249,8 +226,8 @@ body.scroll-locked {
   position: relative;
   width: 100%;
   max-width: 480px;
-  background: rgba(237, 229, 200, 0.04);
-  border: 1px solid rgba(237, 229, 200, 0.10);
+  background: var(--bg);
+  border: 1px solid rgba(242, 237, 216, 0.15);
   border-radius: 24px;
   padding: 2.5rem;
 
@@ -259,11 +236,9 @@ body.scroll-locked {
   align-items: flex-start;
   gap: 1.125rem;
 
-  /* entry animation — driven by parent open class */
   transform: scale(0.96);
   transition: transform 0.4s var(--ease);
 
-  /* contain long content on small screens */
   max-height: 92dvh;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -276,7 +251,7 @@ body.scroll-locked {
   transform: scale(1);
 }
 
-/* close button — top-left in RTL layout */
+/* close button — top-left (RTL) */
 .modal-close {
   position: absolute;
   top: 1.25rem;
@@ -299,7 +274,7 @@ body.scroll-locked {
 .modal-close:hover,
 .modal-close:focus-visible {
   color: var(--text);
-  background: rgba(237, 229, 200, 0.08);
+  background: var(--green-12);
   outline: none;
 }
 
@@ -307,13 +282,11 @@ body.scroll-locked {
 
 .modal-eyebrow {
   font-family: 'Inter', sans-serif;
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 400;
-  letter-spacing: 0.20em;
-  text-transform: uppercase;
-  color: var(--gold);
-  /* offset so it doesn't sit under the close button (RTL: left=close) */
-  padding-inline-end: 2.5rem;
+  letter-spacing: 0.10em;
+  color: var(--text-muted);
+  padding-inline-end: 2rem;
   align-self: flex-start;
 }
 
@@ -321,10 +294,7 @@ body.scroll-locked {
   width: 100%;
   border-radius: 16px;
   overflow: hidden;
-  /* very soft ambient glow beneath the card */
-  box-shadow:
-    0 12px 48px rgba(0, 0, 0, 0.60),
-    0  0   40px var(--green-12);
+  box-shadow: 0 8px 40px rgba(28, 56, 41, 0.20);
 }
 
 .modal-img {
@@ -336,8 +306,8 @@ body.scroll-locked {
 
 .modal-heading {
   font-size: 1.45rem;
-  font-weight: 300;
-  letter-spacing: 0.025em;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   line-height: 1.2;
   color: var(--text);
 }
@@ -350,16 +320,16 @@ body.scroll-locked {
   text-align: right;
 }
 
-/* Instagram CTA inside modal */
+/* Instagram button */
 .btn-instagram {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
   padding: 0.8rem 1.75rem;
   border-radius: 100px;
-  background: var(--glass-bg);
-  border: 1px solid var(--gold-30);
-  color: var(--gold);
+  background: var(--green);
+  border: 1px solid var(--green);
+  color: #F2EDD8;
   font-family: 'Tajawal', sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
@@ -368,22 +338,20 @@ body.scroll-locked {
   align-self: stretch;
   justify-content: center;
   transition:
-    border-color  0.4s var(--ease),
-    box-shadow    0.4s var(--ease),
-    background    0.4s var(--ease);
+    background   0.4s var(--ease),
+    border-color 0.4s var(--ease),
+    box-shadow   0.4s var(--ease);
 }
 
 .btn-instagram:hover,
 .btn-instagram:focus-visible {
-  border-color: var(--gold-60);
-  box-shadow: 0 0 22px var(--gold-15);
-  background: var(--glass-bg-hover);
+  background: #1C3829;
+  border-color: #1C3829;
+  box-shadow: 0 4px 20px var(--green-30);
   outline: none;
 }
 
-.ig-icon {
-  flex-shrink: 0;
-}
+.ig-icon { flex-shrink: 0; }
 
 /* ─── FOOTER ─────────────────────────────────────────────── */
 
@@ -393,6 +361,7 @@ body.scroll-locked {
   align-items: center;
   justify-content: center;
   gap: 0.7rem;
+  border-top: 1px solid var(--glass-border-faint);
 }
 
 .footer-copy {
@@ -411,44 +380,27 @@ body.scroll-locked {
 
 .footer-ig:hover,
 .footer-ig:focus-visible {
-  color: var(--text-muted);
+  color: var(--green);
   outline: none;
 }
 
 /* ─── RESPONSIVE ─────────────────────────────────────────── */
 
 @media (max-width: 768px) {
-  .nav {
-    padding: 1rem 1.5rem;
-  }
+  .nav { padding: 0.875rem 1.5rem; }
 
-  .hero {
-    padding: 6rem 1.25rem 4rem;
-  }
+  .hero { padding: 6rem 1.25rem 4rem; }
 
   .modal-card {
     max-width: 92vw;
-    padding: 2rem 1.5rem 2rem;
+    padding: 2rem 1.5rem;
     border-radius: 20px;
   }
 
-  .modal-close {
-    top: 1rem;
-    left: 1rem;
-  }
+  .modal-close { top: 1rem; left: 1rem; }
 }
 
 @media (max-width: 400px) {
-  .hero-sub {
-    font-size: 0.9rem;
-  }
-
-  .btn-cta {
-    padding: 0.9rem 2rem;
-    font-size: 0.95rem;
-  }
-
-  .modal-card {
-    padding: 1.75rem 1.25rem 1.75rem;
-  }
+  .btn-cta { padding: 0.9rem 2rem; font-size: 0.95rem; }
+  .modal-card { padding: 1.75rem 1.25rem; }
 }
