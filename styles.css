@@ -1,21 +1,32 @@
 /* ─── TOKENS ─────────────────────────────────────────────── */
+/*
+  Palette extracted from the Noqta Designs logo:
+    bg      → near-black with deep forest-green undertone
+    text    → warm cream/ivory  #EDE5C8
+    accent  → muted gold-amber  #C4A86A  (harmonises with the green)
+    green   → mid forest green  #2A5540  (used for glows only)
+*/
 
 :root {
-  --bg:            #0A0A0A;
-  --text:          #F5F5F0;
-  --text-muted:    rgba(245, 245, 240, 0.50);
-  --text-dim:      rgba(245, 245, 240, 0.30);
+  --bg:            #080E09;
+  --text:          #EDE5C8;
+  --text-muted:    rgba(237, 229, 200, 0.52);
+  --text-dim:      rgba(237, 229, 200, 0.30);
 
-  --gold:          #C9A961;
-  --gold-60:       rgba(201, 169, 97, 0.60);
-  --gold-30:       rgba(201, 169, 97, 0.30);
-  --gold-15:       rgba(201, 169, 97, 0.15);
-  --gold-10:       rgba(201, 169, 97, 0.10);
+  --gold:          #C4A86A;
+  --gold-60:       rgba(196, 168, 106, 0.60);
+  --gold-30:       rgba(196, 168, 106, 0.30);
+  --gold-15:       rgba(196, 168, 106, 0.15);
+  --gold-10:       rgba(196, 168, 106, 0.10);
 
-  --glass-bg:      rgba(255, 255, 255, 0.04);
-  --glass-bg-hover:rgba(255, 255, 255, 0.07);
-  --glass-border:  rgba(255, 255, 255, 0.08);
-  --glass-border-faint: rgba(255, 255, 255, 0.05);
+  --green:         #2A5540;
+  --green-12:      rgba(42, 85, 64, 0.12);
+  --green-06:      rgba(42, 85, 64, 0.06);
+
+  --glass-bg:      rgba(237, 229, 200, 0.04);
+  --glass-bg-hover:rgba(237, 229, 200, 0.07);
+  --glass-border:  rgba(237, 229, 200, 0.09);
+  --glass-border-faint: rgba(237, 229, 200, 0.05);
 
   --ease:          cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -67,7 +78,7 @@ body.scroll-locked {
   align-items: center;
   justify-content: flex-end;        /* logo sits on the right in RTL */
   padding: 1.25rem 2.5rem;
-  background: rgba(10, 10, 10, 0.65);
+  background: rgba(8, 14, 9, 0.72);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border-faint);
@@ -102,16 +113,14 @@ body.scroll-locked {
   overflow: hidden;
 }
 
-/* radial glow — gold, very faint, slow pulse */
+/* radial glow — layered: forest green base + faint gold centre */
 .hero-glow {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(
-    ellipse 65% 55% at 50% 44%,
-    var(--gold-10) 0%,
-    transparent 68%
-  );
+  background:
+    radial-gradient(ellipse 50% 40% at 50% 44%, var(--gold-10)  0%, transparent 60%),
+    radial-gradient(ellipse 80% 70% at 50% 50%, var(--green-12) 0%, transparent 72%);
   animation: glow-pulse 7s ease-in-out infinite;
 }
 
@@ -217,7 +226,7 @@ body.scroll-locked {
   align-items: center;
   justify-content: center;
   padding: 1.25rem;
-  background: rgba(10, 10, 10, 0.88);
+  background: rgba(8, 14, 9, 0.90);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
 
@@ -240,8 +249,8 @@ body.scroll-locked {
   position: relative;
   width: 100%;
   max-width: 480px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(237, 229, 200, 0.04);
+  border: 1px solid rgba(237, 229, 200, 0.10);
   border-radius: 24px;
   padding: 2.5rem;
 
@@ -290,7 +299,7 @@ body.scroll-locked {
 .modal-close:hover,
 .modal-close:focus-visible {
   color: var(--text);
-  background: rgba(255, 255, 255, 0.09);
+  background: rgba(237, 229, 200, 0.08);
   outline: none;
 }
 
@@ -314,8 +323,8 @@ body.scroll-locked {
   overflow: hidden;
   /* very soft ambient glow beneath the card */
   box-shadow:
-    0 12px 48px rgba(0, 0, 0, 0.55),
-    0  0   32px var(--gold-10);
+    0 12px 48px rgba(0, 0, 0, 0.60),
+    0  0   40px var(--green-12);
 }
 
 .modal-img {
