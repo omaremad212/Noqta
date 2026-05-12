@@ -76,7 +76,7 @@ body.scroll-locked {
   z-index: 90;
   display: flex;
   align-items: center;
-  justify-content: flex-end;        /* logo sits on the right in RTL */
+  justify-content: space-between;   /* logo right, avatar left in RTL */
   padding: 1.25rem 2.5rem;
   background: rgba(8, 14, 9, 0.72);
   backdrop-filter: blur(20px);
@@ -97,6 +97,20 @@ body.scroll-locked {
   letter-spacing: 0.04em;
   color: var(--text);
   line-height: 1;
+}
+
+.nav-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--gold-30);
+  flex-shrink: 0;
+  transition: border-color 0.3s var(--ease);
+}
+
+.nav-avatar:hover {
+  border-color: var(--gold-60);
 }
 
 /* ─── HERO ───────────────────────────────────────────────── */
