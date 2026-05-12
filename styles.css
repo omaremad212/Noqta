@@ -114,13 +114,13 @@ body.scroll-locked {
 
 .hero {
   position: relative;
-  min-height: 100dvh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 7rem 1.5rem 5rem;
+  padding: 5rem 1.5rem 2rem;
   overflow: hidden;
 }
 
@@ -144,7 +144,7 @@ body.scroll-locked {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.2rem;
   max-width: 700px;
   animation: hero-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
 }
@@ -207,22 +207,6 @@ body.scroll-locked {
   box-shadow: 0 0 28px var(--gold-15);
   background: var(--glass-bg-hover);
   outline: none;
-}
-
-/* ─── SCROLL HINT ────────────────────────────────────────── */
-
-.scroll-hint {
-  position: absolute;
-  bottom: 2.25rem;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--text-dim);
-  animation: bob 2.8s ease-in-out infinite;
-}
-
-@keyframes bob {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(6px); }
 }
 
 /* ─── MODAL OVERLAY ──────────────────────────────────────── */
