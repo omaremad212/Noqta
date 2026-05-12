@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500&family=Inter:wght@300;400&display=swap');
+
+:root {
+  --bg: #0A0A0A;
+  --text: #F5F5F0;
+  --text-muted: rgba(245, 245, 240, 0.45);
+  --text-dim: rgba(245, 245, 240, 0.3);
+  --gold: #C9A961;
+  --gold-30: rgba(201, 169, 97, 0.3);
+  --gold-15: rgba(201, 169, 97, 0.15);
+  --gold-10: rgba(201, 169, 97, 0.10);
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-light: rgba(255, 255, 255, 0.05);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  direction: rtl;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  opacity: 0;
+  animation: pageFadeIn 0.8s ease forwards;
+  overflow-x: hidden;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@keyframes pageFadeIn {
+  to { opacity: 1; }
+}
+
+/* ─── NAV ─────────────────────────────────────────────────── */
+
+.nav {
+  position: fixed;
+  top: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1.25rem 2.5rem;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border-light);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo img {
+  height: 32px;
+  width: auto;
+}
+
+/* ─── HERO ─────────────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 1.5rem 4rem;
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 60% 50% at 50% 45%, var(--gold-10) 0%, transparent 70%);
+  animation: glowPulse 6s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.7; }
+  50%       { opacity: 1; }
+}
+
+.hero-content {
+  position: relative;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  animation: heroFadeUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+}
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.hero-heading {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.hero-sub {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-weight: 300;
+  color: var(--text-muted);
+  max-width: 440px;
+  line-height: 1.7;
+}
+
+/* ─── BUTTON ─────────────────────────────────────────────── */
+
+.btn-gift {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 2.5rem;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--gold-30);
+  color: var(--gold);
+  font-family: 'Tajawal', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-gift:hover,
+.btn-gift:focus-visible {
+  border-color: rgba(201, 169, 97, 0.6);
+  box-shadow: 0 0 24px rgba(201, 169, 97, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
+/* ─── SCROLL INDICATOR ───────────────────────────────────── */
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.35;
+  animation: scrollBob 2.5s ease-in-out infinite;
+}
+
+@keyframes scrollBob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(5px); }
+}
+
+/* ─── MODAL ──────────────────────────────────────────────── */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 24px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  transform: scale(0.96);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-overlay.is-open .modal-card {
+  transform: scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  border-radius: 50%;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.modal-close:hover,
+.modal-close:focus-visible {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
+.modal-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  align-self: flex-start;
+}
+
+.modal-gift-image {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 16px;
+  display: block;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(201, 169, 97, 0.06);
+}
+
+.modal-heading {
+  font-size: 1.4rem;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  color: var(--text);
+  align-self: flex-start;
+}
+
+.modal-instructions {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.7;
+  align-self: flex-start;
+  text-align: right;
+}
+
+.btn-instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 2rem;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--gold-30);
+  color: var(--gold);
+  font-family: 'Tajawal', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  align-self: stretch;
+  justify-content: center;
+  margin-top: 0.25rem;
+}
+
+.btn-instagram:hover,
+.btn-instagram:focus-visible {
+  border-color: rgba(201, 169, 97, 0.6);
+  box-shadow: 0 0 20px rgba(201, 169, 97, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
+.btn-instagram svg {
+  flex-shrink: 0;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────── */
+
+.footer {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.footer-text {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--text-dim);
+  font-family: 'Tajawal', sans-serif;
+}
+
+.footer-ig {
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.footer-ig:hover {
+  color: var(--text-muted);
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 1rem 1.5rem;
+  }
+
+  .hero {
+    padding: 5rem 1.25rem 3rem;
+  }
+
+  .modal-card {
+    padding: 2rem 1.5rem;
+    max-width: 90vw;
+    border-radius: 20px;
+  }
+
+  .modal-close {
+    top: 1rem;
+    left: 1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero-heading {
+    font-size: 2.5rem;
+  }
+
+  .btn-gift {
+    padding: 0.875rem 2rem;
+    font-size: 0.95rem;
+  }
+}
