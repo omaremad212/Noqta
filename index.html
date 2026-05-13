@@ -9,23 +9,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500&family=Inter:wght@300;400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500&family=Inter:wght@300;400&display=swap"
     rel="stylesheet"
   />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-  <!-- ─── NAVIGATION ─────────────────────────────────────────── -->
-  <header role="banner">
-    <nav class="nav" aria-label="التنقل الرئيسي">
-      <a href="/" class="nav-logo" aria-label="نقطة ديزاينز — الصفحة الرئيسية">
-        <span class="logo-arabic" aria-hidden="true">نقطة</span>
-        <span class="logo-latin" aria-hidden="true">NOQTA DESIGNS</span>
-      </a>
-    </nav>
-  </header>
 
   <!-- ─── HERO ───────────────────────────────────────────────── -->
   <main>
@@ -34,21 +24,16 @@
       <div class="hero-glow" aria-hidden="true"></div>
 
       <div class="hero-content">
-        <div class="hero-logo" aria-label="نقطة ديزاينز">
-          <span class="hero-logo-arabic">نقطة</span>
-          <span class="hero-logo-latin">NOQTA DESIGNS</span>
-        </div>
 
-        <span class="eyebrow" aria-label="هدية حصرية">هدية حصرية</span>
+        <img
+          src="assets/profile.jpg"
+          alt="نقطة ديزاينز"
+          class="hero-logo-img"
+        />
 
         <h1 class="hero-heading" id="hero-heading">
-          هدية بتستحقها
+          مبسوطين انك دورت علينا ووقفت علشان تعمل scan
         </h1>
-
-        <p class="hero-sub">
-          تصميمات نقطة بتكافئك بخصم خاص.<br />
-          اضغط واستلم هديتك دلوقتي.
-        </p>
 
         <button
           class="btn-cta"
@@ -56,8 +41,9 @@
           aria-haspopup="dialog"
           aria-controls="gift-modal"
         >
-          احصل على هديتك
+          دوس هنا وخد هديتك
         </button>
+
       </div>
 
     </section>
@@ -86,29 +72,22 @@
         </svg>
       </button>
 
-      <span class="modal-eyebrow">هديتك جاهزة</span>
-
       <div class="modal-image-wrap">
         <img
           src="assets/qr2.jpg.jpeg"
-          alt="بطاقة هدية نقطة ديزاينز — كود خصم خاص"
+          alt="كوبون خصم نقطة ديزاينز"
           class="modal-img"
           loading="lazy"
         />
       </div>
-
-      <h2 class="modal-heading" id="modal-title">خصم خاص ليك</h2>
-
-      <p class="modal-instructions">
-        خد سكرين شوت للصورة دي وابعتها على الانستجرام عشان تستلم خصمك.
-      </p>
 
       <a
         href="https://www.instagram.com/noqtadesigns/?hl=ar"
         target="_blank"
         rel="noopener noreferrer"
         class="btn-instagram"
-        aria-label="افتح صفحة نقطة ديزاينز على انستجرام في تاب جديد"
+        id="modal-title"
+        aria-label="افتح انستجرام نقطة ديزاينز في تاب جديد"
       >
         <svg class="ig-icon" width="17" height="17" viewBox="0 0 24 24" fill="none"
              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -118,12 +97,15 @@
                   stroke="currentColor" stroke-width="1.5"/>
           <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
         </svg>
-        افتح انستجرام نقطة
+        Send us a screenshot here
       </a>
+
+      <p class="modal-instructions">
+        Take a screenshot of the coupon and send it to us on Instagram
+      </p>
 
     </div>
   </div>
-
 
   <script src="script.js"></script>
 </body>
