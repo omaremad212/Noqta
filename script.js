@@ -105,6 +105,50 @@
     }
   }
 
+  /* ─── INSTAGRAM DM PREFILL ────────────────────────────── */
+
+  var igBtn   = document.querySelector('.btn-instagram');
+  var toast   = document.getElementById('copy-toast');
+  var toastTimer;
+
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('is-visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () {
+      toast.classList.remove('is-visible');
+    }, 3000);
+  }
+
+  if (igBtn) {
+    igBtn.addEventListener('click', function () {
+      var message = igBtn.getAttribute('data-ig-message');
+      if (!message) return;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(message).then(function () {
+          showToast('✓ تم نسخ الرسالة — فقط الصقها في انستجرام');
+        }).catch(function () {
+          showToast('افتح الشات والصق: ' + message);
+        });
+      } else {
+        /* Fallback for older browsers / non-secure contexts */
+        try {
+          var ta = document.createElement('textarea');
+          ta.value = message;
+          ta.style.cssText = 'position:fixed;opacity:0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          showToast('✓ تم نسخ الرسالة — فقط الصقها في انستجرام');
+        } catch (e) {
+          showToast('افتح الشات والصق: ' + message);
+        }
+      }
+    });
+  }
+
   openBtn.addEventListener('click', open);
   closeBtn.addEventListener('click', close);
 
